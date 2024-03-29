@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional statements</title>
+</head>
+<body>
+    <script>
+
+        //if else
+        const age = 17;
+        if(age>=18)
+        {
+            consle.console.log("you are eligible to vote");
+        }
+        else{
+            console.log('you are not eligible to vote');
+        }
+
+
+        //if else ladder
+        const num = 6;
+
+        if(num==1)
+        {
+            console.log("one");
+        }
+        else if(num==2)
+        {
+            console.log('two')
+        }
+
+        else if(num==3)
+        {
+            console.log('three')
+        }
+        else if(num==4)
+        {
+            console.log('four')
+        }
+        else if(num==5)
+        {
+            console.log('five')
+        }
+        else if(num==6)
+        {
+            console.log('six')
+        }
+        else
+        {
+            console.log('invalid number')
+        }
+
+
+
+        // addition of two numbers 
+
+        const num1 = parseInt(prompt('enter first number'));
+        const num2 = parseInt(prompt('enter second number'));
+        
+        const sum = num1 + num2;
+
+        console.log(`sum:${sum}`);
+
+        
+        //even odd number
+         const number = parseInt(prompt('enter the number'))
+         if(number%2==0){
+            console.log(`${number} is even`)
+         }
+         else{
+            console.log(`${number} is odd`)
+         }
+        
+         // positive and negative number
+
+         const numbers = parseInt(prompt('enter the number'))
+         if(numbers<0){
+            console.log(`${numbers} is negative number`)
+         }
+         else if (numbers>0){
+            console.log(`${numbers} is positive number`)
+         }
+         else{
+            console.log('number is zero')
+         }
+    </script>
+</body>
+</html>
