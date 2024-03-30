@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Functions</title>
+</head>
+<body>
+    <script>
+        // Argument and Return
+function calculateAreaWithArgumentAndReturn(radius) {
+   
+    console.log(Math.PI * radius * radius);
+}
+
+// No Argument But Return
+function calculateAreaWithNoArgumentButReturn() {
+    const radius = 5; // Hardcoded radius for demonstration
+    console.log(Math.PI * radius * radius);
+}
+
+// Argument But No Return
+function calculateAreaWithArgumentButNoReturn(radius) {
+    const area = Math.PI * radius * radius;
+    console.log("The area of the circle is: ", area);
+}
+
+// No Argument And No Return
+function calculateAreaWithNoArgumentAndNoReturn() {
+    const radius = 5; // Hardcoded radius for demonstration
+    const area = Math.PI * radius * radius;
+    console.log("The area of the circle is: ", area);
+}
+
+//  functions
+const radius = 3;
+console.log("Area with Argument and Return:", calculateAreaWithArgumentAndReturn(radius));
+console.log("Area with No Argument But Return:", calculateAreaWithNoArgumentButReturn());
+calculateAreaWithArgumentButNoReturn(radius);
+calculateAreaWithNoArgumentAndNoReturn();
+
+    </script>
+</body>
+</html>
