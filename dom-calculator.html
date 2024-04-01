@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(247, 30, 30) 100.3%);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .calculator-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 15px;
+    }
+
+    .calculator {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .result {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(247, 30, 30) 100.3%);
+        color: white;
+        border: none;
+        font-weight: 600;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    
+
+    @media only screen and (min-width: 768px) {
+        .calculator {
+            width: 45%;
+        }
+    }
+    
+</style>
+</head>
+<body>
+<div class="calculator-container">
+    <div class="calculator" id="simple-interest-calculator">
+        <h2>Simple Interest Calculator</h2>
+        <div class="input-group">
+            <label for="principal">Principal Amount:</label>
+            <input type="number" id="principal" placeholder="Enter principal amount">
+        </div>
+        <div class="input-group">
+            <label for="rate">Interest Rate (per annum):</label>
+            <input type="number" id="rate" placeholder="Enter interest rate">
+        </div>
+        <div class="input-group">
+            <label for="time">Time Period (in years):</label>
+            <input type="number" id="time" placeholder="Enter time period">
+        </div>
+        <button onclick="calculateSimpleInterest()">Calculate</button>
+        <div class="result" id="simple-interest-result"></div>
+    </div>
+    <div class="calculator" id="bmi-calculator">
+        <h2>BMI Calculator</h2>
+        <div class="input-group">
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" id="weight" placeholder="Enter weight">
+        </div>
+        <div class="input-group">
+            <label for="height">Height (in cm):</label>
+            <input type="number" id="height" placeholder="Enter height">
+        </div>
+        <button onclick="calculateBMI()">Calculate</button>
+        <div class="result" id="bmi-result"></div>
+    </div>
+    
+</div>
+
+<script>
+    function calculateSimpleInterest() {
+        const principal = parseFloat(document.getElementById('principal').value);
+        const rate = parseFloat(document.getElementById('rate').value);
+        const time = parseFloat(document.getElementById('time').value);
+
+        const simpleInterest = (principal * rate * time) / 100;
+        document.getElementById('simple-interest-result').innerText = `Simple Interest: ₹${simpleInterest.toFixed(2)}`;
+    }
+
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100; // convert height from cm to meters
+
+        if (isNaN(weight) || isNaN(height)) {
+            document.getElementById('bmi-result').innerText = 'Please enter valid weight and height.';
+            return;
+        }
+
+        const bmi = weight / (height * height);
+        const bmiCategory = getBMICategory(bmi);
+
+        document.getElementById('bmi-result').innerText = `BMI: ${bmi.toFixed(2)}. ${bmiCategory}`;
+    }
+
+    function getBMICategory(bmi) {
+        if (bmi < 18.5) {
+            return 'You are underweight.';
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            return 'You have a normal weight.';
+        } else if (bmi >= 25 && bmi < 29.9) {
+            return 'You are overweight.';
+        } else {
+            return 'You are obese.';
+        }
+    }
+</script>
+</body>
+</html>
